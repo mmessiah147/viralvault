@@ -37,6 +37,16 @@ function TabNavigator() {
       <Tab.Screen name="PostEditor" component={PostEditorScreen} options={{ tabBarIcon: ({ color, size }) => <Ionicons name="add-circle" size={size} color={color} />, tabBarLabel: "Create" }} />
       <Tab.Screen name="Analytics" component={AnalyticsScreen} options={{ tabBarIcon: ({ color, size }) => <Ionicons name="bar-chart" size={size} color={color} />, tabBarLabel: "Analytics" }} />
       <Tab.Screen name="Settings" component={SettingsScreen} options={{ tabBarIcon: ({ color, size }) => <Ionicons name="settings" size={size} color={color} />, tabBarLabel: "Settings" }} />
+      <Tab.Screen
+  name="Intelligence"
+  component={CompetitiveIntelligenceScreen}
+  options={{
+    tabBarLabel: 'Intel',
+    tabBarIcon: ({ color, size }) => (
+      <Ionicons name="telescope-outline" size={size} color={color} />
+    ),
+  }}
+/>
     </Tab.Navigator>
   );
 }
