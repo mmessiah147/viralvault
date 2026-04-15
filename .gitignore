@@ -39,3 +39,9 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+# Browser saved page files
+*_files/
+*.html
+!index.html
+node_modules/
+.expo/
