@@ -5,14 +5,15 @@ import { Ionicons } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
 const TABS = [
-  { index: 0, label: "Home", color: "#ff6b35", icon: "home", title: "Your Command Center", description: "See live stats, AI post suggestions, and your upcoming content queue. Tap Edit to customize which stats appear on your dashboard." },
-  { index: 1, label: "Library", color: "#4ecdc4", icon: "images", title: "Content Library", description: "All your photos and videos are automatically grouped into thematic clusters. The AI detects your content pillars and surfaces forgotten content from past adventures." },
-  { index: 2, label: "Create", color: "#a78bfa", icon: "add-circle", title: "AI Post Builder", description: "The AI selects your best photos, arranges them for maximum virality, writes captions in your voice, and prepares your post for Instagram and TikTok." },
-  { index: 3, label: "Analytics", color: "#f9ca24", icon: "bar-chart", title: "Growth Intelligence", description: "Track weekly, monthly and annual growth. Set follower goals and see the exact posting strategy required to hit them with an estimated timeline." },
-  { index: 4, label: "Settings", color: "#ff6b35", icon: "settings", title: "Your Brand DNA", description: "Connect Instagram, TikTok and your photo library. Define your content pillars, set your posting cadence, and manage your subscription." },
+  { index: 0, label: "Home", color: "#38BDF8", icon: "home", title: "Your Command Center", description: "See live stats, AI post suggestions, and your upcoming content queue. Tap Edit to customize which stats appear on your dashboard." },
+  { index: 1, label: "Library", color: "#34D399", icon: "images", title: "Content Library", description: "All your photos and videos are automatically grouped into thematic clusters. The AI detects your content pillars and surfaces forgotten content from past adventures." },
+  { index: 2, label: "Create", color: "#0EA5E9", icon: "add-circle", title: "AI Post Builder", description: "The AI selects your best photos, arranges them for maximum virality, writes captions in your voice, and prepares your post for Instagram and TikTok." },
+  { index: 3, label: "Analytics", color: "#FBBF24", icon: "bar-chart", title: "Growth Intelligence", description: "Track weekly, monthly and annual growth. Set follower goals and see the exact posting strategy required to hit them with an estimated timeline." },
+  { index: 4, label: "Intel", color: "#0EA5E9", icon: "telescope", title: "Competitive Intelligence", description: "Analyze any creator to discover trending content clusters, best posting times, and angles you can adopt instantly." },
+  { index: 5, label: "Settings", color: "#38BDF8", icon: "settings", title: "Your Brand DNA", description: "Connect Instagram, TikTok and your photo library. Define your content pillars, set your posting cadence, and manage your subscription." },
 ];
 
-const TAB_WIDTH = width / 5;
+const TAB_WIDTH = width / 6;
 const TAB_BAR_HEIGHT = 70;
 const SPOTLIGHT_SIZE = 64;
 
@@ -75,16 +76,16 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   spotlightLabel: { fontSize: 9, fontWeight: "800", marginTop: 2 },
-  tooltipCard: { position: "absolute", width: 316, backgroundColor: "#1a1a2e", borderRadius: 20, padding: 20, borderWidth: 1 },
+  tooltipCard: { position: "absolute", width: 316, backgroundColor: "#0F172A", borderRadius: 20, padding: 20, borderWidth: 1 },
   tooltipDot: { width: 8, height: 8, borderRadius: 4, marginBottom: 10 },
   tooltipTitle: { color: "#fff", fontSize: 18, fontWeight: "800", marginBottom: 10 },
   tooltipDescription: { color: "#aaa", fontSize: 14, lineHeight: 22, marginBottom: 20 },
   tooltipFooter: { flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 16 },
-  stepIndicator: { color: "#555", fontSize: 12 },
+  stepIndicator: { color: "#334155", fontSize: 12 },
   tooltipButtons: { flexDirection: "row", alignItems: "center", gap: 16 },
-  skipText: { color: "#555", fontSize: 14 },
+  skipText: { color: "#334155", fontSize: 14 },
   nextBtn: { paddingHorizontal: 20, paddingVertical: 10, borderRadius: 10 },
   nextBtnText: { color: "#fff", fontSize: 14, fontWeight: "700" },
   dotsRow: { flexDirection: "row", gap: 6 },
-  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: "#333" },
+  dot: { width: 6, height: 6, borderRadius: 3, backgroundColor: "#1E293B" },
 });

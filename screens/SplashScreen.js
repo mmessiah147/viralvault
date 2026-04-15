@@ -1,100 +1,139 @@
-import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { StatusBar } from 'expo-status-bar';
-
-const { width, height } = Dimensions.get('window');
+import { useFonts, Cinzel_400Regular, Cinzel_700Bold } from '@expo-google-fonts/cinzel';
+import { Raleway_300Light, Raleway_500Medium, Raleway_600SemiBold } from '@expo-google-fonts/raleway';
 
 export default function SplashScreen({ navigation }) {
+  const [fontsLoaded] = useFonts({
+    Cinzel_400Regular,
+    Cinzel_700Bold,
+    Raleway_300Light,
+    Raleway_500Medium,
+    Raleway_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <LinearGradient colors={['#0A0F1E', '#0F172A', '#0C1A2E']} style={styles.loadingContainer}>
+        <ActivityIndicator color="#38BDF8" size="large" />
+      </LinearGradient>
+    );
+  }
+
   return (
-    <LinearGradient
-      colors={['#0a0a0a', '#1a1a2e', '#16213e']}
-      style={styles.container}
-    >
-      <StatusBar style="light" />
-      <View style={styles.topSection}>
-        <Text style={styles.tagline}>YOUR LIFE IS THE CONTENT</Text>
+    <LinearGradient colors={['#0A0F1E', '#0F172A', '#0C1A2E']} style={styles.container}>
+
+      <Text style={styles.tagline}>YOUR LIFE IS THE CONTENT</Text>
+
+      <View style={styles.heroContainer}>
+        <View style={styles.logoRow}>
+          <Text style={styles.atlasText}>Atlas</Text>
+          <Text style={styles.aiText}>.ai</Text>
+        </View>
       </View>
-      <View style={styles.centerSection}>
-        <Text style={styles.logo}>VIRAL</Text>
-        <Text style={styles.logoAccent}>VAULT</Text>
-        <Text style={styles.subtitle}>
-          AI-powered content curation for creators who actually live.
-        </Text>
-      </View>
-      <View style={styles.bottomSection}>
-        <TouchableOpacity 
-          style={styles.primaryButton}
+
+      <Text style={styles.subtitle}>
+        AI-powered content curation for creators{'\n'}who actually live.
+      </Text>
+
+      <View style={styles.bottomContainer}>
+        <TouchableOpacity
+          style={styles.getStartedButton}
           onPress={() => navigation.navigate('Auth')}
+          activeOpacity={0.85}
         >
-          <Text style={styles.primaryButtonText}>Get Started</Text>
+          <Text style={styles.getStartedText}>Get Started</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.secondaryButton}>
-          <Text style={styles.secondaryButtonText}>I already have an account</Text>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Auth')}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.signInText}>I already have an account</Text>
         </TouchableOpacity>
       </View>
+
     </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 80,
-    paddingHorizontal: 30,
+    paddingTop: 80,
+    paddingHorizontal: 32,
+    paddingBottom: 48,
   },
-  topSection: { alignItems: 'center' },
   tagline: {
-    color: '#ff6b35',
+    fontFamily: 'Raleway_600SemiBold',
     fontSize: 11,
-    fontWeight: '700',
+    color: '#38BDF8',
     letterSpacing: 4,
+    textAlign: 'center',
   },
-  centerSection: { alignItems: 'center' },
-  logo: {
-    color: '#ffffff',
-    fontSize: 64,
-    fontWeight: '900',
-    letterSpacing: 8,
-    lineHeight: 70,
+  heroContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  logoAccent: {
-    color: '#ff6b35',
-    fontSize: 64,
-    fontWeight: '900',
-    letterSpacing: 8,
-    lineHeight: 70,
+  logoRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginBottom: 4,
+  },
+  atlasText: {
+    fontFamily: 'Raleway_300Light',
+    fontSize: 72,
+    color: '#F1F5F9',
+    letterSpacing: 2,
+    lineHeight: 80,
+  },
+  aiText: {
+    fontFamily: 'Raleway_300Light',
+    fontSize: 36,
+    color: '#38BDF8',
+    letterSpacing: 2,
+    lineHeight: 72,
+    marginTop: -8,
   },
   subtitle: {
-    color: '#888888',
+    fontFamily: 'Raleway_300Light',
     fontSize: 15,
+    color: '#94A3B8',
     textAlign: 'center',
-    marginTop: 20,
     lineHeight: 24,
-    maxWidth: 280,
+    marginBottom: 48,
+    letterSpacing: 0.3,
   },
-  bottomSection: {
+  bottomContainer: {
     width: '100%',
     alignItems: 'center',
     gap: 16,
   },
-  primaryButton: {
-    backgroundColor: '#ff6b35',
+  getStartedButton: {
     width: '100%',
+    backgroundColor: '#38BDF8',
     paddingVertical: 18,
     borderRadius: 14,
     alignItems: 'center',
   },
-  primaryButtonText: {
-    color: '#ffffff',
+  getStartedText: {
+    fontFamily: 'Raleway_600SemiBold',
     fontSize: 16,
-    fontWeight: '700',
-    letterSpacing: 1,
+    color: '#0A0F1E',
+    letterSpacing: 0.5,
   },
-  secondaryButton: { paddingVertical: 10 },
-  secondaryButtonText: {
-    color: '#666666',
+  signInText: {
+    fontFamily: 'Raleway_500Medium',
     fontSize: 14,
+    color: '#94A3B8',
+    letterSpacing: 0.3,
   },
 });

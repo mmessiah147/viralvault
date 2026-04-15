@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ViralVault",
-    "slug": "ViralVault",
+    "name": "Atlas AI",
+    "slug": "atlas-ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,7 +26,9 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-secure-store",
+      "expo-font"
     ],
     "scheme": "viralvault"
   }
