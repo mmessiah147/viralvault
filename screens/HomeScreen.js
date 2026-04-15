@@ -142,7 +142,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.suggestionSubtitle}>
             Photos detected from your recent {topPillar.toLowerCase()} content. Ready to curate?
           </Text>
-          <TouchableOpacity style={[styles.suggestionButton, { backgroundColor: topColor }]} onPress={() => navigation.navigate('PostEditor')}>
+          <TouchableOpacity style={[styles.suggestionButton, { backgroundColor: topColor }]} onPress={() => navigation.navigate('PostEditor', { cluster: clusters.length > 0 ? clusters[0] : null })}>
             <Text style={styles.suggestionButtonText}>Build Post</Text>
           </TouchableOpacity>
         </View>

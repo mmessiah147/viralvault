@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Switch, Alert } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Switch, Alert, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -147,12 +147,12 @@ export default function SettingsScreen({ navigation }) {
 
         <Text style={styles.sectionTitle}>Legal</Text>
         <View style={styles.sectionCard}>
-          <TouchableOpacity style={styles.legalRow}>
+          <TouchableOpacity style={styles.legalRow} onPress={() => Linking.openURL('https://pvlabs.base44.app/privacy')}>
             <Text style={styles.legalText}>Privacy Policy</Text>
             <Text style={styles.legalArrow}>→</Text>
           </TouchableOpacity>
           <View style={styles.divider} />
-          <TouchableOpacity style={styles.legalRow}>
+          <TouchableOpacity style={styles.legalRow} onPress={() => Linking.openURL('https://pvlabs.base44.app/terms')}>
             <Text style={styles.legalText}>Terms of Service</Text>
             <Text style={styles.legalArrow}>→</Text>
           </TouchableOpacity>
